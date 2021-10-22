@@ -223,12 +223,19 @@ describe("Proposal", function () {
 
     //   - limit voting to only when open
   });
-
+  
+  async function voteWithSkew(skew) {
+    for (let i = 0; i < members.length; i++) {
+      await proposal.connect(members[i]).vote(Math.floor(Math.random() * 10) >= skew)
+    }
+  }
 
   // Executor
+  describe('Executor', function () {
   //    - must be owned by proposal
   //    - close voting
   //    - only if voting status is Approved
   //    - calls `.execute()` on executor function
   //    - can only call `.exectute()` once
+  });
 });
